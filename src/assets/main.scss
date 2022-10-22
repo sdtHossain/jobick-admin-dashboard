@@ -135,22 +135,22 @@ $primary: #1d1faa;
   z-index: 99;
   transition: all 0.2s;
 
-  .chatbar {
-    position: fixed;
-    width: 0;
-    height: 100vh;
-    z-index: 9999;
-    right: -253px;
-    transition: all 0.8s ease;
-  }
-
   &.expand {
     width: 100%;
     right: 0;
 
-    .chatbar {
+    & + .chatbar {
       width: 244px;
       right: 0;
     }
   }
+}
+
+.chatbar {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+  z-index: 9999;
+  right: -253px;
+  transition: all 0.8s ease;
 }

@@ -9,9 +9,8 @@ const { chatBarCollapsed } = storeToRefs(useDashboardStore());
     @click="chatBarCollapsed = true"
     class="chatbar-container"
     :class="!chatBarCollapsed ? 'expand' : ''"
-  >
-    <div class="chatbar bg-light p-3">
-      <h5>Chatbar</h5>
-    </div>
+  ></div>
+  <div class="chatbar bg-light p-3">
+    <h5>Chatbar</h5>
   </div>
 </template>
