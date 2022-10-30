@@ -1,0 +1,21 @@
+{
+  "dashboard": {
+    "position": "horizontal"
+  },
+  "menu": {
+    "dashboard": {
+      "label": "dashboard",
+      "icon": "fa-regular fa-heart",
+      "submenu": [
+        "dashboard light", "dashboard dark"
+      ]
+    },
+    "home": {
+      "label": "home",
+      "icon": "fa-regular fa-user",
+      "submenu": [
+        "home light", "home dark"
+      ]
+    }
+  }
+}

@@ -1,13 +1,18 @@
 <script setup>
 import { useDashboardStore } from "../../../stores/dashbord";
 import { storeToRefs } from "pinia";
+import sourceData from "../../../../data.json";
+import SubMenu from "./SubMenu.vue";
 
-const { dashbordCollapsed } = storeToRefs(useDashboardStore());
+const { dashbordCollapsed, isVerticalHeader } = storeToRefs(
+  useDashboardStore()
+);
 </script>
 <template>
   <aside
+    v-if="!isVerticalHeader"
     class="sidebar p-3 bg-light"
-    :class="dashbordCollapsed ? 'dashboard-collapsed' : ''"
+    :class="[dashbordCollapsed ? 'dashboard-collapsed' : '']"
   >
     <!-- logo -->
     <a href="#" class="logo pb-3 d-block">
@@ -56,55 +61,61 @@ const { dashbordCollapsed } = storeToRefs(useDashboardStore());
           />
         </div>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li
+            v-for="submenu in sourceData.menu.dashboard.submenu"
+            :key="submenu"
+          >
+            <a class="dropdown-item" href="#">{{ submenu }}</a>
+          </li>
         </ul>
       </div>
     </div>
 
     <!-- accordion -->
     <div class="accordion" id="accordionExample">
-      <div class="item d-flex">
-        <font-awesome-icon icon="fa-regular fa-heart" class="me-2" />
+      <div
+        v-for="menu in sourceData.menu"
+        :key="menu"
+        class="item d-flex dropdown"
+      >
+        <font-awesome-icon
+          :icon="menu.icon"
+          :class="dashbordCollapsed ? 'dropdown-toggle' : 'me-2'"
+          :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
+          aria-expanded="false"
+        />
+        <!-- dropdown -->
+        <ul class="dropdown-menu">
+          <template v-for="submenu in menu.submenu" :key="submenu">
+            <SubMenu :isDropdown="true" :menuLabel="submenu" />
+          </template>
+        </ul>
         <div class="flex-grow-1 item-details">
           <h6
             class="accordion-button bg-transparent shadow-none p-0"
-            id="headingOne"
+            :id="`heading${menu.label}`"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
+            :data-bs-target="`#collapse${menu.label}`"
             aria-expanded="true"
-            aria-controls="collapseOne"
+            :aria-controls="`collapse${menu.label}`"
           >
-            Dashboard
+            {{ menu.label }}
           </h6>
           <div
-            id="collapseOne"
+            :id="`collapse${menu.label}`"
             class="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
+            :aria-labelledby="`heading${menu.label}`"
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
               <ul class="list-unstyled submenu">
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Light</a>
-                </li>
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Dark</a>
-                </li>
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Dark</a>
-                </li>
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Dark</a>
-                </li>
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Dark</a>
-                </li>
-                <li class="d-flex align-items-center">
-                  <span class="dash"></span><a href="#">Dashboard Dark</a>
-                </li>
+                <SubMenu
+                  v-for="(submenu, index) in menu.submenu"
+                  :key="index"
+                  :isDropdown="false"
+                  :menuLabel="submenu"
+                />
               </ul>
             </div>
           </div>
