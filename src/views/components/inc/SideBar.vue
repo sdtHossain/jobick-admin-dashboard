@@ -4,15 +4,15 @@ import { storeToRefs } from "pinia";
 import sourceData from "../../../../data.json";
 import SubMenu from "./SubMenu.vue";
 
-const { dashbordCollapsed, isVerticalHeader } = storeToRefs(
+const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
   useDashboardStore()
 );
 </script>
 <template>
   <aside
     v-if="!isVerticalHeader"
-    class="sidebar p-3 bg-light"
-    :class="[dashbordCollapsed ? 'dashboard-collapsed' : '']"
+    class="sidebar p-3"
+    :class="[dashbordCollapsed ? 'dashboard-collapsed' : '', themeType]"
   >
     <!-- logo -->
     <a href="#" class="logo pb-3 d-block">

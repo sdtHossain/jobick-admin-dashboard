@@ -1,5 +1,39 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+$body-bg: #f8f8f8;
+$body-color: #393939;
 $primary: #1d1faa;
+
+// Create your own map
+$custom-colors: (
+  "light-theme": #900,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
 @import "~bootstrap/scss/bootstrap";
+
+// background
+.sdtAdmin {
+  &-light {
+    background-color: #f8f8f8;
+
+    &.navbar,
+    &.sidebar {
+      background-color: #ffffff;
+    }
+  }
+
+  &-dark {
+    background-color: #17171e;
+
+    &.navbar,
+    &.sidebar {
+      background-color: #212130;
+    }
+  }
+}
 
 .sidebar {
   min-height: 100vh;

@@ -4,10 +4,15 @@ import { storeToRefs } from "pinia";
 import SubMenu from "./SubMenu.vue";
 import sourceData from "../../../../data.json";
 
-const { dashbordCollapsed, chatBarCollapsed, dashboard, isVerticalHeader } =
-  storeToRefs(useDashboardStore());
+const {
+  dashbordCollapsed,
+  chatBarCollapsed,
+  dashboard,
+  isVerticalHeader,
+  themeType,
+} = storeToRefs(useDashboardStore());
 
-const { changeDashPosition } = useDashboardStore();
+const { changeDashPosition, changeThemeType } = useDashboardStore();
 </script>
 <template>
   <div
@@ -15,10 +20,11 @@ const { changeDashPosition } = useDashboardStore();
     :class="[
       dashbordCollapsed ? 'expand' : '',
       isVerticalHeader ? 'w-100' : '',
+      themeType,
     ]"
   >
     <!-- nav bar -->
-    <nav class="navbar bg-light px-4">
+    <nav class="navbar px-4" :class="themeType">
       <template v-if="!isVerticalHeader">
         <font-awesome-icon
           @click="dashbordCollapsed = true"
@@ -58,7 +64,7 @@ const { changeDashPosition } = useDashboardStore();
     </nav>
 
     <!-- vertical sidebar -->
-    <nav v-if="isVerticalHeader" class="navbar bg-light">
+    <nav v-if="isVerticalHeader" class="navbar" :class="themeType">
       <div class="container-fluid">
         <ul class="list-unstyled d-flex">
           <li
@@ -96,6 +102,10 @@ const { changeDashPosition } = useDashboardStore();
 
         <button @click="changeDashPosition" class="btn btn-primary">
           Change
+        </button>
+
+        <button @click="changeThemeType" class="btn btn-primary">
+          Change theme
         </button>
       </div>
     </div>

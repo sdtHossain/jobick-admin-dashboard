@@ -7,12 +7,21 @@ export const useDashboardStore = defineStore("dashboard", () => {
   const chatBarCollapsed = ref(true);
   const isVerticalHeader = ref(false);
   const dashboard = reactive(sourceData.dashboard);
+  const themeType = ref(sourceData.dashboard.theme);
+  const themeBgColor = ref();
+  const themeHeadingAndSidebarColor = ref();
 
   function changeDashPosition() {
-    console.log(dashboard);
     dashboard.position =
       dashboard.position == "vertical" ? "horizontal" : "vertical";
     isVerticalHeader.value = dashboard.position == "vertical" ? true : false;
+  }
+
+  function changeThemeType() {
+    dashboard.theme =
+      dashboard.theme == "sdtAdmin-light" ? "sdtAdmin-dark" : "sdtAdmin-light";
+    themeType.value =
+      dashboard.theme == "sdtAdmin-light" ? "sdtAdmin-dark" : "sdtAdmin-light";
   }
 
   return {
@@ -21,5 +30,7 @@ export const useDashboardStore = defineStore("dashboard", () => {
     dashboard,
     changeDashPosition,
     isVerticalHeader,
+    themeType,
+    changeThemeType,
   };
 });

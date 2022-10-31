@@ -1,6 +1,7 @@
 {
   "dashboard": {
-    "position": "horizontal"
+    "position": "horizontal",
+    "theme": "sdtAdmin-light"
   },
   "menu": {
     "dashboard": {
