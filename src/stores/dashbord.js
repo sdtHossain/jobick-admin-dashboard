@@ -20,8 +20,10 @@ export const useDashboardStore = defineStore("dashboard", () => {
   function changeThemeType() {
     dashboard.theme =
       dashboard.theme == "sdtAdmin-light" ? "sdtAdmin-dark" : "sdtAdmin-light";
-    themeType.value =
-      dashboard.theme == "sdtAdmin-light" ? "sdtAdmin-dark" : "sdtAdmin-light";
+    console.log(themeType.value);
+    themeType.value = dashboard.theme;
+
+    console.log(themeType.value);
   }
 
   return {
