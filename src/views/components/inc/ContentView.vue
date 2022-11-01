@@ -24,26 +24,48 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
     ]"
   >
     <!-- nav bar -->
-    <nav class="navbar navbar-top px-4" :class="themeType">
+    <nav
+      class="navbar navbar-top px-4 justify-content-start"
+      :class="themeType"
+    >
       <template v-if="!isVerticalHeader">
-        <font-awesome-icon
+        <!-- <font-awesome-icon
           @click="dashbordCollapsed = !dashbordCollapsed"
           icon="fa-regular fa-heart"
           class="me-2"
-        />
+        /> -->
+        <i
+          class="ri-menu-2-line me-2"
+          @click="dashbordCollapsed = !dashbordCollapsed"
+        ></i>
       </template>
-      <div class="dropdown">
+
+      <h3 class="ms-5">Dashboard</h3>
+
+      <form
+        class="d-flex ms-5 nav-search rounded-pill overflow-hidden px-3"
+        :class="themeType"
+        role="search"
+      >
+        <input
+          class="form-control border-0 bg-transparent"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn border-0 bg-transparent" type="submit">
+          <i class="ri-file-search-fill"></i>
+        </button>
+      </form>
+
+      <div class="dropstart ms-auto">
         <div
-          class="dropdown-toggle"
+          class=""
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img
-            src="../../../assets/images/menu-dot.png"
-            class="menu-dot-icon"
-            alt=""
-          />
+          <i class="ri-notification-off-fill"></i>
         </div>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Action</a></li>
@@ -51,10 +73,30 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-      <font-awesome-icon
+      <!-- <font-awesome-icon
         @click="chatBarCollapsed = false"
         icon="fa-solid fa-list"
-      />
+      /> -->
+      <i class="ri-message-2-fill ms-3" @click="chatBarCollapsed = false"></i>
+
+      <div class="dropstart ms-3">
+        <div
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          class="avatar"
+        >
+          <img src="/images/pic1.jpg" alt="" />
+        </div>
+        <ul
+          class="dropdown-menu"
+          :class="themeType == 'sdtAdmin-dark' ? 'dropdown-menu-dark' : ''"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- vertical sidebar -->

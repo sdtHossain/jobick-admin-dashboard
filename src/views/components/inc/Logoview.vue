@@ -8,7 +8,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
 
 <template>
   <!-- logo -->
-  <a href="#" class="logo p-3 d-block">
+  <a href="#" class="logo p-3 d-block" :class="themeType">
     <img
       src="../../../assets/images/logo.png"
       class="img-fluid logo-img"
@@ -17,7 +17,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
     <img
       v-if="!dashbordCollapsed"
       src="../../../assets/images/logo-text.png"
-      class="img-fluid logo-text"
+      class="img-fluid logo-text ms-2"
       alt=""
     />
   </a>

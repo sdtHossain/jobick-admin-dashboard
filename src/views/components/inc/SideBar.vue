@@ -64,12 +64,17 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
         :key="menu"
         class="item d-flex dropdown"
       >
-        <font-awesome-icon
+        <!-- <font-awesome-icon
           :icon="menu.icon"
           :class="dashbordCollapsed ? 'dropdown-toggle' : 'me-2'"
           :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
           aria-expanded="false"
-        />
+        /> -->
+        <i
+          :class="[dashbordCollapsed ? '' : 'me-2', menu.icon]"
+          :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
+          aria-expanded="false"
+        ></i>
         <!-- dropdown -->
         <ul class="dropdown-menu">
           <template v-for="submenu in menu.submenu" :key="submenu">
