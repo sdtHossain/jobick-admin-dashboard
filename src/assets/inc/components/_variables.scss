@@ -6,6 +6,15 @@ $header-height: 90px;
 $sidebar-width: 244px;
 $sidebar-collapsed-width: 74px;
 
+// theme type variables
+$theme-light-bg-color: #f8f8f8;
+$theme-light-sidebar-bg-color: #ffffff;
+$theme-light-font-color: #759791;
+
+$theme-dark-bg-color: #17171e;
+$theme-dark-sidebar-bg-color: #212130;
+$theme-dark-font-color: #ffffff;
+
 // Create your own map(bootstrap machanism)
 $custom-colors: (
   "light-theme": #900,
