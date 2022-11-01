@@ -14,20 +14,6 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
     class="sidebar p-3"
     :class="[dashbordCollapsed ? 'dashboard-collapsed' : '', themeType]"
   >
-    <!-- logo -->
-    <a href="#" class="logo pb-3 d-block">
-      <img
-        src="../../../assets/images/logo.png"
-        class="img-fluid logo-img"
-        alt=""
-      />
-      <img
-        src="../../../assets/images/logo-text.png"
-        class="img-fluid logo-text"
-        alt=""
-      />
-    </a>
-
     <!-- profile -->
     <div class="profile d-flex">
       <!-- avatar -->

@@ -1,0 +1,19 @@
+.sdtAdmin {
+  &-light {
+    background-color: #f8f8f8;
+
+    &.navbar,
+    &.sidebar {
+      background-color: #ffffff;
+    }
+  }
+
+  &-dark {
+    background-color: #17171e;
+
+    &.navbar,
+    &.sidebar {
+      background-color: #212130;
+    }
+  }
+}

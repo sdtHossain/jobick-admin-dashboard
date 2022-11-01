@@ -24,20 +24,14 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
     ]"
   >
     <!-- nav bar -->
-    <nav class="navbar px-4" :class="themeType">
+    <nav class="navbar navbar-top px-4" :class="themeType">
       <template v-if="!isVerticalHeader">
         <font-awesome-icon
-          @click="dashbordCollapsed = true"
+          @click="dashbordCollapsed = !dashbordCollapsed"
           icon="fa-regular fa-heart"
           class="me-2"
         />
-        <font-awesome-icon
-          @click="dashbordCollapsed = false"
-          icon="fa-regular fa-user"
-          class="me-2"
-        />
       </template>
-      <a class="navbar-brand" href="#">Navbar</a>
       <div class="dropdown">
         <div
           class="dropdown-toggle"

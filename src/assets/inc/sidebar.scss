@@ -1,0 +1,101 @@
+.sidebar {
+  min-height: 100vh;
+  /* background: #191c24; */
+  font-weight: normal;
+  padding: 0;
+  width: $sidebar-width;
+  z-index: 11;
+  transition: width 0.25s ease, left 0.25s ease;
+  -webkit-transition: width 0.25s ease, left 0.25s ease;
+  -moz-transition: width 0.25s ease, left 0.25s ease;
+  -ms-transition: width 0.25s ease, left 0.25s ease;
+
+  .accordion .item-details,
+  .profile .info,
+  .profile .dropdown,
+  .logo-text {
+    opacity: 1;
+    transition: width 0.35s ease, opacity 0.35s ease;
+    -webkit-transition: width 0.35s ease, opacity 0.35s ease;
+    -moz-transition: width 0.35s ease, opacity 0.35s ease;
+    -ms-transition: width 0.35s ease, opacity 0.35s ease;
+  }
+}
+
+//dashboard collapsed style
+.dashboard-collapsed {
+  .accordion .item-details,
+  .profile .info,
+  .profile .dropdown,
+  .logo-text {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &.sidebar {
+    width: $sidebar-collapsed-width;
+  }
+}
+
+/*----------------------------------------------------------------------------/
+                          All Features Styles goes here                             
+/----------------------------------------------------------------------------*/
+// profile
+.profile .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.profile .dropdown-toggle:after {
+  display: none;
+}
+
+.menu-dot-icon {
+  width: 18px;
+}
+
+// submenu dash
+.submenu {
+  .dash {
+    width: 6px;
+    height: 2px;
+    background: red;
+    margin-right: 4px;
+    transition: all 0.3s;
+  }
+
+  & li:hover {
+    .dash {
+      width: 12px;
+    }
+  }
+}
+
+// responsive sidebar
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 56px;
+    box-shadow: 0 0 0.625rem rgb(0 0 0 / 20%);
+  }
+  .dashboard-collapsed {
+    .accordion .item-details,
+    .profile .info,
+    .profile .dropdown,
+    .logo-text {
+      width: auto;
+      height: auto;
+      overflow: unset;
+      opacity: 1;
+    }
+
+    &.sidebar {
+      width: $sidebar-width;
+      position: fixed;
+      left: -253px;
+    }
+  }
+}

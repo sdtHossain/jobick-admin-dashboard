@@ -1,0 +1,28 @@
+.chatbar-container {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  width: 0;
+  right: -100%;
+  height: 100%;
+  z-index: 99;
+  transition: all 0.2s;
+
+  &.expand {
+    width: 100%;
+    right: 0;
+
+    & + .chatbar {
+      width: $sidebar-width;
+      right: 0;
+    }
+  }
+}
+
+.chatbar {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+  z-index: 9999;
+  right: -253px;
+  transition: all 0.8s ease;
+}
