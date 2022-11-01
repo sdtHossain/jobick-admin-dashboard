@@ -62,7 +62,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
       <div
         v-for="menu in sourceData.menu"
         :key="menu"
-        class="item d-flex dropdown"
+        class="item d-flex dropdown py-2"
       >
         <!-- <font-awesome-icon
           :icon="menu.icon"
@@ -99,8 +99,8 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
             :aria-labelledby="`heading${menu.label}`"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body">
-              <ul class="list-unstyled submenu">
+            <div class="accordion-body p-0">
+              <ul class="list-unstyled submenu m-0">
                 <SubMenu
                   v-for="(submenu, index) in menu.submenu"
                   :key="index"

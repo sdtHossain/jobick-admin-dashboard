@@ -66,9 +66,12 @@
   .dash {
     width: 6px;
     height: 2px;
-    background: red;
     margin-right: 4px;
     transition: all 0.3s;
+  }
+
+  a {
+    color: unset;
   }
 
   & li:hover {

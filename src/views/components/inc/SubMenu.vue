@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import { useDashboardStore } from "../../../stores/dashbord";
+import { storeToRefs } from "pinia";
+const { themeType } = storeToRefs(useDashboardStore());
 
 const props = defineProps({
   isDropdown: {
@@ -14,11 +17,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <li :class="isDropdown ? '' : 'd-flex align-items-center'">
+  <li :class="isDropdown ? '' : 'd-flex align-items-center'" class="pb-2">
     <template v-if="!dropdown">
-      <span class="dash"></span>
+      <span class="dash" :class="themeType"></span>
     </template>
-    <a :class="isDropdown ? 'dropdown-item' : ''" href="#">{{ menuLabel }}</a>
+    <a
+      :class="isDropdown ? 'dropdown-item' : ''"
+      class="text-decoration-none"
+      href="#"
+      >{{ menuLabel }}</a
+    >
   </li>
 </template>
 
