@@ -92,19 +92,19 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
         </ul>
         <div class="flex-grow-1 item-details">
           <h6
-            class="accordion-button bg-transparent shadow-none p-0"
+            class="accordion-button bg-transparent shadow-none p-0 collapsed"
             :id="`heading${menu.label}`"
             type="button"
             data-bs-toggle="collapse"
             :data-bs-target="`#collapse${menu.label}`"
-            aria-expanded="true"
+            aria-expanded="false"
             :aria-controls="`collapse${menu.label}`"
           >
             {{ menu.label }}
           </h6>
           <div
             :id="`collapse${menu.label}`"
-            class="accordion-collapse collapse show"
+            class="accordion-collapse collapse"
             :aria-labelledby="`heading${menu.label}`"
             data-bs-parent="#accordionExample"
           >
