@@ -6,14 +6,14 @@
   "menu": {
     "dashboard": {
       "label": "dashboard",
-      "icon": "fa-regular fa-heart",
+      "icon": "ri-dashboard-fill",
       "submenu": [
         "dashboard light", "dashboard dark"
       ]
     },
     "home": {
       "label": "home",
-      "icon": "fa-regular fa-user",
+      "icon": "ri-home-8-fill",
       "submenu": [
         "home light", "home dark"
       ]
