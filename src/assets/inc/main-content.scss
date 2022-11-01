@@ -1,5 +1,23 @@
 @import "./components/navbar_top";
 
+// navbar top
+.nav-search {
+  width: 360px;
+  height: 48px;
+}
+.avatar {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+}
+
 .page-body-wrapper {
   min-height: 100vh;
   padding-left: 0;

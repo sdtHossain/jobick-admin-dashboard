@@ -43,13 +43,18 @@
                           All Features Styles goes here                             
 /----------------------------------------------------------------------------*/
 // profile
-.profile .avatar {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+.profile {
+  height: 70px;
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
 }
-.profile .dropdown-toggle:after {
-  display: none;
+.profile {
+  .dropdown-toggle:after {
+    display: none;
+  }
 }
 
 .menu-dot-icon {

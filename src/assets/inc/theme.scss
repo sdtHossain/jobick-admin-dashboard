@@ -1,19 +1,30 @@
 .sdtAdmin {
   &-light {
-    background-color: #f8f8f8;
+    background-color: $theme-light-bg-color;
 
     &.navbar,
+    &.logo,
     &.sidebar {
-      background-color: #ffffff;
+      background-color: $theme-light-sidebar-bg-color;
+      color: $theme-light-font-color;
+    }
+
+    &.sidebar .accordion-button {
+      color: $theme-light-font-color;
     }
   }
 
   &-dark {
-    background-color: #17171e;
+    background-color: $theme-dark-bg-color;
 
     &.navbar,
+    &.logo,
     &.sidebar {
-      background-color: #212130;
+      background-color: $theme-dark-sidebar-bg-color;
+      color: $theme-dark-font-color;
+    }
+    &.sidebar .accordion-button {
+      color: $theme-dark-font-color;
     }
   }
 }
