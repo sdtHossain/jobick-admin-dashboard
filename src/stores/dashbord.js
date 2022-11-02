@@ -1,6 +1,6 @@
 import { ref, computed, reactive } from "vue";
 import { defineStore } from "pinia";
-import sourceData from "../../data.json";
+import sourceData from "@/data.json";
 
 export const useDashboardStore = defineStore("dashboard", () => {
   const dashbordCollapsed = ref(true);

@@ -13,19 +13,23 @@ const props = defineProps({
     type: String,
     default: "Submenu",
   },
+  menuRoute: {
+    type: String,
+    default: "/",
+  },
 });
 </script>
 
 <template>
   <li :class="isDropdown ? '' : 'd-flex align-items-center'" class="pb-2">
-    <template v-if="!dropdown">
+    <template v-if="!isDropdown">
       <span class="dash" :class="themeType"></span>
     </template>
-    <a
+    <RouterLink
+      :to="menuRoute"
       :class="isDropdown ? 'dropdown-item' : ''"
       class="text-decoration-none"
-      href="#"
-      >{{ menuLabel }}</a
+      >{{ menuLabel }}</RouterLink
     >
   </li>
 </template>

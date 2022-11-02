@@ -1,8 +1,8 @@
 <script setup>
-import { useDashboardStore } from "../../../stores/dashbord";
+import { useDashboardStore } from "@/stores/dashbord";
 import { storeToRefs } from "pinia";
-import sourceData from "../../../../data.json";
-import SubMenu from "./SubMenu.vue";
+import sourceData from "@/data.json";
+import SubMenu from "@/views/components/inc/SubMenu.vue";
 
 const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
   useDashboardStore()
@@ -72,13 +72,18 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
         /> -->
         <i
           :class="[dashbordCollapsed ? '' : 'me-2', menu.icon]"
+          class="fs-2"
           :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
           aria-expanded="false"
         ></i>
         <!-- dropdown -->
         <ul class="dropdown-menu">
           <template v-for="submenu in menu.submenu" :key="submenu">
-            <SubMenu :isDropdown="true" :menuLabel="submenu" />
+            <SubMenu
+              :isDropdown="true"
+              :menuLabel="submenu.label"
+              :menuRoute="submenu.route"
+            />
           </template>
         </ul>
         <div class="flex-grow-1 item-details">
@@ -105,7 +110,8 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
                   v-for="(submenu, index) in menu.submenu"
                   :key="index"
                   :isDropdown="false"
-                  :menuLabel="submenu"
+                  :menuLabel="submenu.label"
+                  :menuRoute="submenu.route"
                 />
               </ul>
             </div>
