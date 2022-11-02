@@ -1,0 +1,22 @@
+{
+  "dashboard": {
+    "position": "horizontal",
+    "theme": "sdtAdmin-light"
+  },
+  "menu": {
+    "dashboard": {
+      "label": "dashboard",
+      "icon": "ri-dashboard-fill",
+      "submenu": {
+        "light": {
+          "label": "dashboard light",
+          "route": "/about"
+        },
+        "dark": {
+          "label": "dashboard dark",
+          "route": "/"
+        }
+      }
+    }
+  }
+}
