@@ -2,6 +2,8 @@
 
 <template>
   <main>
-    <h1>Home Page</h1>
+    <h1>Dashboard Page</h1>
+
+    <RouterView />
   </main>
 </template>

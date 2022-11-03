@@ -10,11 +10,11 @@
       "submenu": {
         "light": {
           "label": "dashboard light",
-          "route": "/about"
+          "route": "admin/light"
         },
         "dark": {
           "label": "dashboard dark",
-          "route": "/"
+          "route": "dashboard/dark"
         }
       }
     }
