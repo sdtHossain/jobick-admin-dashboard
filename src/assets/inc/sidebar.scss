@@ -10,7 +10,8 @@
   -moz-transition: width 0.25s ease, left 0.25s ease;
   -ms-transition: width 0.25s ease, left 0.25s ease;
 
-  .accordion .item-details,
+  .accordion .item-heading h6,
+  .accordion .item-submenu,
   .profile .info,
   .profile .dropdown,
   .logo-text {
@@ -21,14 +22,37 @@
     -ms-transition: width 0.35s ease, opacity 0.35s ease;
   }
 
-  .accordion .item-details {
+  .accordion .item-heading h6,
+  .accordion .item-submenu {
     padding-top: 12px;
+  }
+
+  .accordion-button {
+    background-color: transparent;
+  }
+
+  .router-link-active {
+    .right-border {
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        background: $success;
+        right: 0;
+        top: 0;
+        border-radius: 5px;
+      }
+    }
   }
 }
 
 //dashboard collapsed style
 .dashboard-collapsed {
-  .accordion .item-details,
+  .accordion .item-heading h6,
+  .accordion .item-submenu,
   .profile .info,
   .profile .dropdown,
   .logo-text {
@@ -109,7 +133,8 @@
     box-shadow: 0 0 0.625rem rgb(0 0 0 / 20%);
   }
   .dashboard-collapsed {
-    .accordion .item-details,
+    .accordion .item-heading h6,
+    .accordion .item-submenu,
     .profile .info,
     .profile .dropdown,
     .logo-text {

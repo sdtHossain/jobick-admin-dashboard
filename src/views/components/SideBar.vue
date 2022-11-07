@@ -11,11 +11,11 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
 <template>
   <aside
     v-if="!isVerticalHeader"
-    class="sidebar p-3"
+    class="sidebar py-3"
     :class="[dashbordCollapsed ? 'dashboard-collapsed' : '', themeType]"
   >
     <!-- profile -->
-    <div class="profile d-flex">
+    <div class="profile d-flex px-3">
       <!-- avatar -->
       <div class="icon-wrapper">
         <div class="position-relative">
@@ -71,42 +71,47 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
           :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
           aria-expanded="false"
         /> -->
-
-        <!-- dropdown -->
-        <ul class="dropdown-menu">
-          <template v-for="submenu in menu.submenu" :key="submenu">
-            <SubMenu
-              :isDropdown="true"
-              :menuLabel="submenu.label"
-              :menuRoute="submenu.route"
-            />
-          </template>
-        </ul>
-        <div class="flex-grow-1 item-details">
-          <div class="item-heading d-flex">
+        <div class="flex-grow-1">
+          <div
+            class="item-heading d-flex px-3"
+            :class="!dashbordCollapsed ? 'right-border' : ''"
+          >
             <i
               :class="[dashbordCollapsed ? '' : 'me-2', menu.icon]"
               class="fs-2"
               :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
               aria-expanded="false"
             ></i>
+            <!-- dropdown -->
+            <ul class="dropdown-menu">
+              <template v-for="submenu in menu.submenu" :key="submenu">
+                <SubMenu
+                  :isDropdown="true"
+                  :menuLabel="submenu.label"
+                  :menuRoute="submenu.route"
+                />
+              </template>
+            </ul>
             <h6
-              class="accordion-button bg-transparent shadow-none p-0 collapsed"
+              :class="
+                menu.submenu ? 'accordion-button shadow-none p-0 collapsed' : ''
+              "
               :id="`heading${menu.label}`"
               type="button"
-              data-bs-toggle="collapse"
-              :data-bs-target="`#collapse${menu.label}`"
+              :data-bs-toggle="menu.submenu ? 'collapse' : ''"
+              :data-bs-target="menu.submenu ? `#collapse${menu.label}` : ''"
               aria-expanded="false"
-              :aria-controls="`collapse${menu.label}`"
+              :aria-controls="menu.submenu ? `collapse${menu.label}` : ''"
             >
               {{ menu.label }}
             </h6>
           </div>
           <div
             :id="`collapse${menu.label}`"
-            class="accordion-collapse collapse"
+            class="accordion-collapse collapse item-submenu px-5"
             :aria-labelledby="`heading${menu.label}`"
             data-bs-parent="#accordionExample"
+            v-if="menu.submenu"
           >
             <div class="accordion-body p-0">
               <ul class="list-unstyled submenu m-0">

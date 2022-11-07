@@ -38,6 +38,21 @@
       "label": "Post",
       "icon": "ri-dashboard-fill",
       "route": "/post"
+    },
+    "blog": {
+      "label": "blog",
+      "icon": "ri-dashboard-fill",
+      "route": "/blog",
+      "submenu": {
+        "light": {
+          "label": "blog light",
+          "route": "/blog/light"
+        },
+        "dark": {
+          "label": "blog dark",
+          "route": "/blog/dark"
+        }
+      }
     }
   }
 }
