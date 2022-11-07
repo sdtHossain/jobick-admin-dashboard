@@ -34,7 +34,7 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
         ></i>
       </template>
 
-      <h3 class="ms-5">Dashboard</h3>
+      <h3 class="ms-5">{{ $route.params.menu }}</h3>
 
       <form
         class="d-flex ms-5 nav-search rounded-pill overflow-hidden px-3"
