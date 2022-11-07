@@ -71,12 +71,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
           :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
           aria-expanded="false"
         /> -->
-        <i
-          :class="[dashbordCollapsed ? '' : 'me-2', menu.icon]"
-          class="fs-2"
-          :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
-          aria-expanded="false"
-        ></i>
+
         <!-- dropdown -->
         <ul class="dropdown-menu">
           <template v-for="submenu in menu.submenu" :key="submenu">
@@ -88,17 +83,25 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
           </template>
         </ul>
         <div class="flex-grow-1 item-details">
-          <h6
-            class="accordion-button bg-transparent shadow-none p-0 collapsed"
-            :id="`heading${menu.label}`"
-            type="button"
-            data-bs-toggle="collapse"
-            :data-bs-target="`#collapse${menu.label}`"
-            aria-expanded="false"
-            :aria-controls="`collapse${menu.label}`"
-          >
-            {{ menu.label }}
-          </h6>
+          <div class="item-heading d-flex">
+            <i
+              :class="[dashbordCollapsed ? '' : 'me-2', menu.icon]"
+              class="fs-2"
+              :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
+              aria-expanded="false"
+            ></i>
+            <h6
+              class="accordion-button bg-transparent shadow-none p-0 collapsed"
+              :id="`heading${menu.label}`"
+              type="button"
+              data-bs-toggle="collapse"
+              :data-bs-target="`#collapse${menu.label}`"
+              aria-expanded="false"
+              :aria-controls="`collapse${menu.label}`"
+            >
+              {{ menu.label }}
+            </h6>
+          </div>
           <div
             :id="`collapse${menu.label}`"
             class="accordion-collapse collapse"

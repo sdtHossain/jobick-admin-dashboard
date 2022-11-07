@@ -85,6 +85,21 @@
   }
 }
 
+// sidebar menu styles
+.router-link-active {
+  color: $primary;
+  text-decoration: none;
+
+  .item-heading {
+    background: rgba($color: $success, $alpha: 0.6);
+
+    i,
+    h6 {
+      color: $success !important;
+    }
+  }
+}
+
 // responsive sidebar
 @media (max-width: 767px) {
   .sidebar {
