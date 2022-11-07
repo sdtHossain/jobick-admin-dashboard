@@ -2,7 +2,7 @@
 
 <template>
   <main>
-    <h1>Dashboard Page</h1>
+    <h1>{{ $route.params.menu }} Page</h1>
 
     <RouterView />
   </main>

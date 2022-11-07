@@ -59,7 +59,8 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
 
     <!-- accordion -->
     <div class="accordion" id="accordionExample">
-      <div
+      <router-link
+        :to="menu.route"
         v-for="menu in sourceData.menu"
         :key="menu"
         class="item d-flex dropdown py-2"
@@ -117,7 +118,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
       <!-- <div class="item">
         <h6>Contact</h6>
       </div>

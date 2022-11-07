@@ -7,16 +7,37 @@
     "dashboard": {
       "label": "dashboard",
       "icon": "ri-dashboard-fill",
+      "route": "/dashboard",
       "submenu": {
         "light": {
           "label": "dashboard light",
-          "route": "admin/light"
+          "route": "/dashboard/light"
         },
         "dark": {
           "label": "dashboard dark",
-          "route": "dashboard/dark"
+          "route": "/dashboard/dark"
         }
       }
+    },
+    "product": {
+      "label": "Product",
+      "icon": "ri-dashboard-fill",
+      "route": "/product",
+      "submenu": {
+        "light": {
+          "label": "product light",
+          "route": "/product/light"
+        },
+        "dark": {
+          "label": "product dark",
+          "route": "/product/dark"
+        }
+      }
+    },
+    "post": {
+      "label": "Post",
+      "icon": "ri-dashboard-fill",
+      "route": "/post"
     }
   }
 }

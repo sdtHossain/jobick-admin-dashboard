@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AdminView from "@/views/AdminView.vue";
-import DashboardLightView from "@/views/DashboardLightView.vue";
+import MenuView from "@/views/MenuView.vue";
+import SubMenuView from "@/views/SubMenuView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,17 +8,17 @@ const router = createRouter({
     {
       path: "/",
       redirect: {
-        name: "Admin",
+        name: "Menu",
       },
     },
     {
-      path: "/admin",
-      name: "Admin",
-      component: AdminView,
+      path: "/:menu",
+      name: "Menu",
+      component: MenuView,
       children: [
         {
-          path: "light",
-          component: DashboardLightView,
+          path: ":submenu",
+          component: SubMenuView,
         },
       ],
     },
