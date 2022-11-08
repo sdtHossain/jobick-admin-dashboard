@@ -36,3 +36,22 @@
     width: 100%;
   }
 }
+
+// horizontal navbar
+.horizontal-navbar {
+  .nav-link {
+    padding: 10px 20px;
+    color: #759791;
+    margin-right: 4px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    &:hover {
+      background-color: rgba($color: $success, $alpha: 0.5);
+      color: $success;
+    }
+
+    &.dropdown-toggle::after {
+      margin-left: 10px;
+    }
+  }
+}

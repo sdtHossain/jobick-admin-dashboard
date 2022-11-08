@@ -1,15 +1,15 @@
 <script setup>
 import { useDashboardStore } from "../../../stores/dashbord";
 import { storeToRefs } from "pinia";
-const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
+const { dashbordCollapsed, isHorizontalHeader, theme, themeType } = storeToRefs(
   useDashboardStore()
 );
 </script>
 
 <template>
   <!-- logo -->
-  <a
-    href="#"
+  <router-link
+    to="/"
     class="logo p-3 d-flex align-items-center"
     :class="[dashbordCollapsed ? 'dashboard-collapsed' : '', themeType]"
   >
@@ -24,5 +24,5 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
       :class="dashbordCollapsed ? 'collapsed-text' : ''"
       alt=""
     />
-  </a>
+  </router-link>
 </template>

@@ -8,8 +8,13 @@ const router = createRouter({
     {
       path: "/",
       redirect: {
-        name: "Menu",
+        name: "dashboard",
       },
+    },
+    {
+      path: "/",
+      name: "dashboard",
+      component: () => import("../views/DashboardView.vue"),
     },
     {
       path: "/:menu",
@@ -20,15 +25,11 @@ const router = createRouter({
           path: ":submenu",
           component: SubMenuView,
         },
+        {
+          path: "create",
+          component: () => import("../views/components/inc/FormView.vue"),
+        },
       ],
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
     },
   ],
 });

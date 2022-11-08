@@ -4,13 +4,13 @@ import { storeToRefs } from "pinia";
 import sourceData from "@/data.json";
 import SubMenu from "@/views/components/inc/SubMenu.vue";
 
-const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
+const { dashbordCollapsed, isHorizontalHeader, theme, themeType } = storeToRefs(
   useDashboardStore()
 );
 </script>
 <template>
   <aside
-    v-if="!isVerticalHeader"
+    v-if="!isHorizontalHeader"
     class="sidebar py-3"
     :class="[dashbordCollapsed ? 'dashboard-collapsed' : '', themeType]"
   >
@@ -71,7 +71,7 @@ const { dashbordCollapsed, isVerticalHeader, theme, themeType } = storeToRefs(
           :data-bs-toggle="dashbordCollapsed ? 'dropdown' : ''"
           aria-expanded="false"
         /> -->
-        <div class="flex-grow-1">
+        <div class="w-100">
           <div
             class="item-heading d-flex px-3"
             :class="!dashbordCollapsed ? 'right-border' : ''"

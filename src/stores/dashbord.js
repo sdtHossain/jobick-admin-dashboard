@@ -5,7 +5,7 @@ import sourceData from "@/data.json";
 export const useDashboardStore = defineStore("dashboard", () => {
   const dashbordCollapsed = ref(true);
   const chatBarCollapsed = ref(true);
-  const isVerticalHeader = ref(false);
+  const isHorizontalHeader = ref(false);
   const dashboard = reactive(sourceData.dashboard);
   const themeType = ref(sourceData.dashboard.theme);
   const themeBgColor = ref();
@@ -14,7 +14,7 @@ export const useDashboardStore = defineStore("dashboard", () => {
   function changeDashPosition() {
     dashboard.position =
       dashboard.position == "vertical" ? "horizontal" : "vertical";
-    isVerticalHeader.value = dashboard.position == "vertical" ? true : false;
+    isHorizontalHeader.value = dashboard.position == "vertical" ? true : false;
   }
 
   function changeThemeType() {
@@ -31,7 +31,7 @@ export const useDashboardStore = defineStore("dashboard", () => {
     chatBarCollapsed,
     dashboard,
     changeDashPosition,
-    isVerticalHeader,
+    isHorizontalHeader,
     themeType,
     changeThemeType,
   };

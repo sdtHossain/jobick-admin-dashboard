@@ -8,45 +8,51 @@ const {
   dashbordCollapsed,
   chatBarCollapsed,
   dashboard,
-  isVerticalHeader,
+  isHorizontalHeader,
   themeType,
 } = storeToRefs(useDashboardStore());
-
-const { changeDashPosition, changeThemeType } = useDashboardStore();
 </script>
 <template>
   <div
     class="container-fluid page-body-wrapper"
     :class="[
       dashbordCollapsed ? 'expand' : '',
-      isVerticalHeader ? 'w-100' : '',
+      isHorizontalHeader ? 'w-100' : '',
       themeType,
     ]"
   >
-    <!-- vertical sidebar -->
-    <nav v-if="isVerticalHeader" class="navbar" :class="themeType">
+    <!-- horizontal sidebar -->
+    <nav
+      v-if="isHorizontalHeader"
+      class="navbar horizontal-navbar p-0"
+      :class="themeType"
+    >
       <div class="container-fluid">
-        <ul class="list-unstyled d-flex">
+        <ul class="list-unstyled d-flex mb-0">
           <li
             v-for="menu in sourceData.menu"
             :key="menu.label"
-            class="nav-item dropdown"
+            class="nav-item"
+            :class="menu.submenu ? 'dropdown' : ''"
           >
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
+            <router-link
+              class="nav-link"
+              :class="menu.submenu ? 'dropdown-toggle' : ''"
+              :to="menu.route"
               role="button"
-              data-bs-toggle="dropdown"
+              :data-bs-toggle="menu.submenu ? 'dropdown' : ''"
               aria-expanded="false"
             >
+              <i class="ri-building-4-line"></i>
               {{ menu.label }}
-            </a>
-            <ul class="dropdown-menu">
+            </router-link>
+            <ul v-if="menu.submenu" class="dropdown-menu">
               <SubMenu
                 v-for="submenu in menu.submenu"
                 :key="submenu"
                 :isDropdown="true"
-                :menuLabel="submenu"
+                :menuLabel="submenu.label"
+                :menuRoute="submenu.route"
               />
             </ul>
           </li>
@@ -58,14 +64,6 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
     <div class="main-panel">
       <div class="content-wrapper p-4">
         <RouterView />
-
-        <button @click="changeDashPosition" class="btn btn-primary">
-          Change
-        </button>
-
-        <button @click="changeThemeType" class="btn btn-primary">
-          Change theme
-        </button>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ const {
   dashbordCollapsed,
   chatBarCollapsed,
   dashboard,
-  isVerticalHeader,
+  isHorizontalHeader,
   themeType,
 } = storeToRefs(useDashboardStore());
 
@@ -22,7 +22,7 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
       class="navbar navbar-top px-4 justify-content-start flex-grow-1"
       :class="themeType"
     >
-      <template v-if="!isVerticalHeader">
+      <template v-if="!isHorizontalHeader">
         <!-- <font-awesome-icon
           @click="dashbordCollapsed = !dashbordCollapsed"
           icon="fa-regular fa-heart"
@@ -34,7 +34,7 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
         ></i>
       </template>
 
-      <h3 class="ms-5">{{ $route.params.menu }}</h3>
+      <h3 class="ms-5">{{ $route.params.menu || "LipiKoron" }}</h3>
 
       <form
         class="d-flex ms-5 nav-search rounded-pill overflow-hidden px-3"
@@ -52,7 +52,18 @@ const { changeDashPosition, changeThemeType } = useDashboardStore();
         </button>
       </form>
 
-      <div class="dropstart ms-auto">
+      <!-- change sidebar view -->
+      <i
+        class="ri-split-cells-vertical cursor-pointer ms-auto"
+        @click="changeDashPosition"
+      ></i>
+      <!-- theme change -->
+      <i
+        class="ri-contrast-2-fill cursor-pointer ms-3"
+        @click="changeThemeType"
+      ></i>
+
+      <div class="dropstart ms-3">
         <div
           class=""
           type="button"

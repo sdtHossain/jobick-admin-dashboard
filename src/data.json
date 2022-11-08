@@ -31,6 +31,10 @@
         "dark": {
           "label": "product dark",
           "route": "/product/dark"
+        },
+        "create": {
+          "label": "add product",
+          "route": "/product/create"
         }
       }
     },
